@@ -23,9 +23,9 @@ jobs:
         run: hugo --minify
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v2  # 关键：使用正确的上传插件
         with:
-          path: ./public
+          path: ./public  # 确保 public 目录中的内容被上传
 
   deploy:
     needs: build
