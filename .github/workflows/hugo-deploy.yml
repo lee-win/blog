@@ -4,15 +4,6 @@ on:
   push:
     branches: [main]
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          submodules: true  # 关键：包含 Blowfish 子模块
+          submodules: true  # 确保包含 Blowfish 子模块
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
